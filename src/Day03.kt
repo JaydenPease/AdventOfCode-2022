@@ -13,8 +13,8 @@ fun main() {
     //println(Day03_part2(testInput))
 
     val input = readInput("Day03")
-    println(Day03_part1(input))
-    //println(Day03_part2(input))
+    //println(Day03_part1(input))
+    println(Day03_part2(input))
 
 
 }
@@ -56,9 +56,14 @@ fun Day03_part2(input : List<String>) : Int {
         if(i % 3 != 0) {continue}
 
         for(j in input[i].indices) {
-            if(input[i+1].indexOf(input[i].substring(j, j+1)) != -1 && input[i+2].indexOf(input[i].substring(j, j+1)) != -1)
+            if(input[i+1].indexOf(input[i].substring(j, j+1)) != -1 && input[i+2].indexOf(input[i].substring(j, j+1)) != -1) {
+                totalPriority += alphabet.indexOf(input[i].substring(j, j+1)) + 1
+                break
+            }
         }
     }
+
+    return totalPriority
 
 }
 
